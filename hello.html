@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+    <div id="root4"></div>
+    <script type="text/babel">
+
+      ReactDOM.render(
+        <h1>Hello, world!</h1>,
+        document.getElementById('root')
+      );
+
+      ReactDOM.render(
+        React.DOM.h1(
+                {id: 'myh1',
+                className: 'name',
+                htmlFor: 'me',
+                style: {
+                  background: "black",
+                  color: "white",
+                  fontFamily: "Verdana"
+                }},   //for属性
+             "Hello world!"
+        ), document.getElementById('root2')
+      );
+
+      var Component = React.createClass({
+        render: function () {
+          return React.DOM.span(null, "I'm so custom.")
+
+        }
+      });
+
+
+      ReactDOM.render(
+              React.createElement(Component),
+              document.getElementById('root3')
+      );
+      var CompentFactory = React.createFactory(Component);
+      ReactDOM.render(CompentFactory(),
+      document.getElementById('root4')
+      )
+
+    </script>
+  </body>
+</html>
